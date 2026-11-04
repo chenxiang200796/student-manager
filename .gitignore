@@ -36,3 +36,7 @@ bin/
 # 旧练习代码，不纳入本仓库（以后可以单独建一个练习仓库）
 /src/com/ithema/
 run_simulator.bat
+
+# 程序运行产生的数据文件，不入库（首次运行会自动生成）
+students.txt
+test.txt

@@ -31,4 +31,8 @@ public class Student {
     public String toString() {
         return id + " " + name + " " + sex + " " + phone;
     }
+    public String toLine(){
+        return id + "," + name + "," + sex + "," + phone;
+    }
+
 }
