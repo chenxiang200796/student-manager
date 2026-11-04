@@ -57,23 +57,9 @@ public class Main {
                 }
             }
         }
-        list.add(new Student("20250402","李四","女","123444"));
-        list.add(new Student("20250401","张三","男","123456"));
-        System.out.println("----全部学生----");
-        for(Student s:list){
-            System.out.println(s);
-        }
-        System.out.println("请输入要查找的学号:");
-        String id=sc.next();
-        Student found=findById(list,id);
-        if(found==null){
-            System.out.println("未查找到学号");
-        }
-        else{
-            System.out.println("找到"+found);
+
         }
 
-    }
     public static Student findById(ArrayList<Student>list,String id){//根据学号查找学生
         for(Student s:list){
             if(s.getId().equals(id)){
