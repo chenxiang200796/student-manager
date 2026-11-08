@@ -12,7 +12,7 @@ import java.io.File;
 public class Main {
     public static void main(String[] args)throws Exception{
         Scanner sc=new Scanner(System.in);
-        ArrayList<Student>list=loadAll();
+        ArrayList<Student>list=MysqlStudentDao.findAll();
         while(true){
             System.out.println("----学生信息管理系统----");
             System.out.println("1 添加学生/ 2 显示全部/ 3 按学号查找/ 4 删除学生/ 0 退出");
@@ -30,6 +30,7 @@ public class Main {
                 }else{
                     Student s=new Student(parts[0],parts[1],parts[2],parts[3]);
                     list.add(s);
+                    MysqlStudentDao.insert(s);
                     System.out.println("添加成功"+s);
                 }
 
@@ -62,12 +63,12 @@ public class Main {
                     System.out.println("未查找到学号");
                 }
                 else {
+                    MysqlStudentDao.deleteById(id);
                     list.remove(found);
                     System.out.println("删除成功" + found);
                 }
             }
         }
-        saveAll(list);
 
         }
 
@@ -80,30 +81,6 @@ public class Main {
         }
         return null;
     }
-    public static void saveAll(ArrayList<Student>list) throws Exception{//saveAll(存一堆学生)，保存所有学生信息到文件
-        PrintWriter w=new PrintWriter(new FileWriter("students.txt"));
-        for(Student s:list){
-            w.println(s.toLine());
-        }
-        w.close();
-    }
-    public static ArrayList<Student> loadAll() throws Exception{
-        ArrayList<Student>list=new ArrayList<>();
-        File f=new File("students.txt");
-        if(!f.exists()){
-            return list;
-        }
-        BufferedReader r=new BufferedReader(new FileReader(f));
-        String line;
-        while((line=r.readLine())!=null){
-            String[] p=line.trim().split(",");
-            list.add(new Student(p[0],p[1],p[2],p[3]));
-        }
-        r.close();
-        return list;
-
-    }
-
 
 
 }

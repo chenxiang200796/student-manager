@@ -1,10 +1,10 @@
-### IntelliJ IDEA ###
+﻿# ---- IntelliJ IDEA ----
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+.idea/
+*.iml
 .kotlin
 
-### Eclipse ###
+# ---- Eclipse ----
 .apt_generated
 .classpath
 .factorypath
@@ -13,30 +13,19 @@ out/
 .springBeans
 .sts4-cache
 bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
+# ---- VS Code ----
 .vscode/
 
-### Mac OS ###
+# ---- macOS ----
 .DS_Store
 
-### 本项目补充 ###
-.idea/
-*.iml
-
-# 旧练习代码，不纳入本仓库（以后可以单独建一个练习仓库）
+# ---- project specific ----
+# old practice code, kept out of this repo
 /src/com/ithema/
 run_simulator.bat
-
-# 程序运行产生的数据文件，不入库（首次运行会自动生成）
+# runtime data files, created on first run
 students.txt
 test.txt
+# third-party jar files (see README)
+lib/
